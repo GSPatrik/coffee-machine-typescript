@@ -36,7 +36,7 @@ export class CoffeeMachine {
       cost = 0;
     }
 
-    if (cost <= 0) {
+    if (cost < 0) {
       return "Error: invalid price";
     }
 
