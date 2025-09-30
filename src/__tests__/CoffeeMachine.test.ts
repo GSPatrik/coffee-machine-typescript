@@ -35,7 +35,7 @@ describe("CoffeeMachine", () => {
   it("if user sets too much sugar (>5), it shouldn't serve anything, type an error", () => {
     const machine = new CoffeeMachine();
 
-    const drink = new Drink("Cappucino", 3, true, 6, "medium");
+    const drink = new Drink("Cappuccino", 3, true, 6, "medium");
 
     const result = machine.serve(drink, 4.1, false, 13);
 
@@ -45,7 +45,7 @@ describe("CoffeeMachine", () => {
   it("if the price of a drink is below zero the machine should display an error, not serving anything", () => {
     const machine = new CoffeeMachine();
 
-    const drink = new Drink("Cappucino", -5, true, 3, "small");
+    const drink = new Drink("Cappuccino", -5, true, 3, "small");
 
     const result = machine.serve(drink, 4.1, false, 13);
 
@@ -80,6 +80,14 @@ describe("CoffeeMachine", () => {
     expect(result).toBe("Not enough money");
   });
 
-  
+  it("if not enough money, it doesn't serve anything", () => {
+    const machine = new CoffeeMachine();
+
+    const drink = new Drink("Coffee", 2, false, 0, "large");
+
+    const result = machine.serve(drink, 2, true, 13);
+
+    expect(result).toBe("Not enough money");
+  });
 
 });
